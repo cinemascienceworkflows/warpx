@@ -63,23 +63,11 @@ Hide3DWidgets(proxy=resampleToImage1Display)
 renderView1.ResetCamera()
 
 # create extractor
-jPG1 = CreateExtractor('JPG', renderView1, registrationName='JPG1')
-# trace defaults for the extractor.
-# init the 'JPG' selected for 'Writer'
-jPG1.Writer.FileName = 'RenderView1_%.6ts%cm.jpg'
-jPG1.Writer.ImageResolution = [892, 862]
-jPG1.Writer.Format = 'JPEG'
-
-# destroy jPG1
-Delete(jPG1)
-del jPG1
-
-# create extractor
 pNG1 = CreateExtractor('PNG', renderView1, registrationName='PNG1')
 # trace defaults for the extractor.
 # init the 'PNG' selected for 'Writer'
 pNG1.Writer.FileName = 'RenderView1_%.6ts%cm.png'
-pNG1.Writer.ImageResolution = [892, 862]
+pNG1.Writer.ImageResolution = [500, 500]
 pNG1.Writer.Format = 'PNG'
 
 # Properties modified on pNG1.Writer

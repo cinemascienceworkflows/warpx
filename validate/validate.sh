@@ -9,17 +9,18 @@ GOLD=validate/data/pantheon.cdb
 echo "----------------------------------------------------------------------"
 echo "PTN: validating $OUTPUT" 
 
-imgs="0.png 10.png 20.png 30.png"
+imgs="RenderView1_000000p=000.00t=180.00.png RenderView1_000000p=180.00t=180.00.png RenderView1_000000p=300.00t=180.00.png"
 
 PASS=true
 if [ -d $OUTPUT ]; then
     for val in $imgs; do
         if cmp "$OUTPUT/$val" "$GOLD/$val"; then
-            echo "     Comparing images $GOLD/$val"
+            echo "     Comparing images $OUTPUT/$val"
+            echo "                      $GOLD/$val"
         else
             echo "FILES differ:"
-            echo "    $OUTPUT"
-            echo "    $GOLD"
+            echo "    $OUTPUT/$val"
+            echo "    $GOLD/$val"
             PASS=false
         fi
     done
