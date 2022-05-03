@@ -7,8 +7,7 @@
 </p>
 <p align="center">Diagram of workflow in this example.</p>
 
-This workflow exercises creating a post-processing cinema database,
-using 
+This workflow exercises creating a post-processing cinema database, using 
 [WarpX's](https://warpx.readthedocs.io/en/latest/install/hpc/summit.html)
 latest build instructions.
 
@@ -30,10 +29,7 @@ First, clone the repository, then:
 
 ## Notes on this repository
 
-A repository for examples using `Ascent`, in-situ creation of float data, converted to `Cinema CIS` databases, and verification. 
-
-Build instructions embedded in this workflow are derived from the build instructions for 
+- Build instructions embedded in this workflow are derived from the build instructions for 
 [WarpX's](https://warpx.readthedocs.io/en/latest/install/hpc/summit.html)
-
-This workflow will pull cached builds from a [E4S](https://e4s-project.github.io/) repository, if they exist
+- This workflow will pull cached builds from a [E4S](https://e4s-project.github.io/) repository, if they exist
 to speed up the build/install of requisite applications.
