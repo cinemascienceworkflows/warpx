@@ -6,12 +6,6 @@ echo "----------------------------------------------------------------------"
 echo "PTN: Post-processing" 
 echo "     packaging up cinema database to:" 
 
-# install cinema viewers
-# mkdir -p $PANTHEON_RUN_DIR/cinema_databases
-cp -rf inputs/cinema/* $PANTHEON_RUN_DIR/cinema_databases
-    # redirect the python notebook viewer to the database
-sed -i "s#CINEMA_DB_PATH#$PANTHEON_CDB#" $PANTHEON_RUN_DIR/cinema_databases/cinema.ipynb 
-
 pushd $PANTHEON_RUN_DIR > /dev/null 2>&1
 
 TARNAME=cinema_databases

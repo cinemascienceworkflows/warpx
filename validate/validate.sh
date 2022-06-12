@@ -14,7 +14,12 @@ imgs="RenderView1_000000p=000.00t=180.00.png RenderView1_000000p=180.00t=180.00.
 PASS=true
 if [ -d $OUTPUT ]; then
     for val in $imgs; do
-        if cmp "$OUTPUT/$val" "$GOLD/$val"; then
+        # compare the size of the images as a rough test
+        gsize=$(stat -c%s "$GOLD/$val")
+        osize=$(stat -c%s "$OUTPUT/$val")
+        dsize=$( expr $gsize - $osize )
+        dfrac=$( expr $dsize / $gsize )
+        if [ $dfrac -eq 0 ]; then 
             echo "     Comparing images $OUTPUT/$val"
             echo "                      $GOLD/$val"
         else
