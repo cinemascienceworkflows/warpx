@@ -18,8 +18,7 @@ The workflow does the following:
 - Creates a [Pantheon](http://pantheonscience.org/) environment and build location
 - Clones and builds a specific commit of [Warpx](https://github.com/ECP-WarpX)
 - Runs the workflow to produce data 
-- Runs a script to post-process that data into a Cinema database
-- Adds a `Cinema` viewer and a jupyter notebook viewer, and packages up the results.
+- Runs a ParaView script to post-process that data into a Cinema database, and packages up the result. We note that the latest versions of the [Cinema toolkit](https://github.com/cinemascience/cinemasci) make it easy to view databases without installing viewer code, as in previous releases.
 - Verifies the `Cinema` database
 
 First, clone the repository, then:
