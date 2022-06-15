@@ -10,8 +10,8 @@ echo "     $PANTHEON_WORKFLOW_DIR"
 PANTHEON_SOURCE_ROOT=$PWD
 
 # these settings allow you to control what gets built ...
-BUILD_CLEAN=true
-INSTALL_SPACK=true
+BUILD_CLEAN=false
+INSTALL_SPACK=false
 USE_SPACK_CACHE=true
 INSTALL_APP=false
 
@@ -63,32 +63,30 @@ if $INSTALL_SPACK; then
     pushd spack > /dev/null 2>&1
     git checkout $SPACK_COMMIT
     popd > /dev/null 2>&1
-
-    # activate spack
-    . spack/share/spack/setup-env.sh
-    # concretize
-    # spack -e . concretize -f 2>&1 | tee concretize.log
-
-    if $USE_SPACK_CACHE; then
-        echo ----------------------------------------------------------------------
-        echo "PTN: using Spack E4S cache ..."
-        echo ----------------------------------------------------------------------
-
-        # make sure correct mirror is used
-        spack mirror remove $SPACK_NAME
-        spack mirror add $SPACK_NAME $SPACK_CACHE_URL
-
-        spack buildcache keys -it
-        module load patchelf
-    fi
-
-    # install and generate module load commands for run step
-    # time spack -e . install
-    # spack -e . env loads
-    spack install warpx@22.06 dims=3 compute=cuda
-
-    popd
+    popd > /dev/null 2>&1
 fi
+
+# activate spack
+pushd $PANTHEON_WORKFLOW_DIR > /dev/null 2>&1
+. spack/share/spack/setup-env.sh
+
+if $USE_SPACK_CACHE; then
+    echo ----------------------------------------------------------------------
+    echo "PTN: using Spack E4S cache ..."
+    echo ----------------------------------------------------------------------
+
+    # make sure correct mirror is used
+    spack mirror remove $SPACK_NAME
+    spack mirror add $SPACK_NAME $SPACK_CACHE_URL
+
+    spack buildcache keys -it
+    module load patchelf
+fi
+
+# install application 
+spack install warpx@22.06 dims=3 compute=cuda
+
+popd
 
 # build the application and parts as needed
 if $INSTALL_APP; then

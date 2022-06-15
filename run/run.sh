@@ -23,7 +23,8 @@ cp run/submit.sh $PANTHEON_RUN_DIR
 cp inputs/warpx/input.file $PANTHEON_RUN_DIR 
 cp inputs/warpx/warpx.profile $PANTHEON_RUN_DIR 
 # copy the executable
-cp $PANTHEON_WORKFLOW_DIR/warpx/build/bin/warpx.3d.MPI.CUDA.DP.OPMD.QED $PANTHEON_RUN_DIR/warpx
+# cp $PANTHEON_WORKFLOW_DIR/warpx/build/bin/warpx.3d.MPI.CUDA.DP.OPMD.QED $PANTHEON_RUN_DIR/warpx
+cp $PANTHEON_WORKFLOW_DIR/spack/opt/spack/linux-rhel8-power9le/gcc-9.3.0/warpx-22.06-t62wmsnzd7n2hgzhxuzhqpoxlniktc5z/bin/warpx.3d.MPI.CUDA.DP.PDP.OPMD.PSATD.QED $PANTHEON_RUN_DIR/warpx
 
 # END: EDIT THIS SECTION
 # --------------------------------------------------------------------

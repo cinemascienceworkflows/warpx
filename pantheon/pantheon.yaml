@@ -9,7 +9,7 @@ project:
 workflow:
     workflow_name: WarpX Workflow
     workflow_desc: Pantheon workflow designed for E4S integration
-    workflow_version: 21.21 
+    workflow_version: 22.06 
     workflow_cinema-db: pantheon.cdb
     workflow_app: warpx
     workflow_in-situ: in-situ
